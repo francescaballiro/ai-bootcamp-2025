@@ -26,6 +26,9 @@ result -= 1
 # Controllo che il valore non sia negativo
 assert result >= 0
 
+# Concateno le stringhe
+message = "hello" + "world"
+
 # Creo una lista e la estendo
 li1 = [1, 2]
 li1 += [3]
@@ -83,6 +86,3 @@ while num > 0:
     num -=1
 
 print("Fine programma")
-
-# Bonus: verifico la seguente operazione sui float
-#assert 0.1 + 0.2 == 0.3
