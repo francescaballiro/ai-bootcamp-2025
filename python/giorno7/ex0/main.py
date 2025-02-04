@@ -1,16 +1,12 @@
 import csv
 
-#apro il file e ordino in base al cognome indicizzando e salvando in un file
+#apro il file e ordino in base al cognome
 with open("data.csv") as fd:
     reader = csv.reader(fd)
-    # legge l'intestazione
     intestazione = next(reader)
-    # si convertono le righe in una lista
-    lines = list(reader)
-    # ordino le righe in base al cognome
-    lines.sort(key=lambda line: line[1])
-    # stampo l'intestazione
-    print(intestazione)
+    def f(cognomi):
+        return cognomi[1]
+    lines= list(sorted(reader, key=f))
 
     contatore = 1
     for line in lines:
@@ -21,8 +17,9 @@ with open("data.csv") as fd:
 with open("data.csv") as fd:
     reader = csv.reader(fd)
     intestazione = next(reader)
-    lines1 = list(reader)
-    lines1.sort(key=lambda el: el[0])
+    def n(nomi):
+        return nomi[0]
+    lines1 = list(sorted(reader, key=n))
     print(intestazione)
     for el in lines1:
         print(el)
@@ -31,3 +28,4 @@ with open("data2.csv", mode='w', newline='') as fd2:
     writer = csv.writer(fd2)
     writer.writerow(intestazione)
     writer.writerows(lines)
+
