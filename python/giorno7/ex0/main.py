@@ -5,7 +5,7 @@ with open("data.csv") as fd:
     reader = csv.reader(fd)
     intestazione = next(reader)
     def f(cognomi):
-        return cognomi[1]
+        return (cognomi[1], cognomi[0])
     lines= list(sorted(reader, key=f))
 
     contatore = 1

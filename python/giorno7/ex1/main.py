@@ -1,7 +1,6 @@
 import random
 import csv
 from datetime import datetime
-from pdb import find_first_executable_line
 
 
 def gioca():
