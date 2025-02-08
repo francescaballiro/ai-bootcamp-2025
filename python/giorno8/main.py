@@ -22,7 +22,7 @@ last_name TEXT,
 year_of_birth INTEGER,
 gender TEXT,
 email TEXT,
-assignments DEFAULT 0) ''');
+assignments INTEGER DEFAULT 0) ''');
 conn.commit()
 
 cur.executemany(
@@ -35,14 +35,24 @@ rows = cur.fetchall()
 for row in rows:
     print(row)
 
+#cur.execute("SELECT first_name, last_name, assignments FROM students ORDER BY  assigments DES LIMIT 1")
 cur.execute("SELECT first_name, last_name, assignments FROM students WHERE assignments = (SELECT MAX(assignments) FROM students)")
 rows = cur.fetchall()
 print("The student with the highest number of assignments is:")
 for row in rows:
     print(row)
 
+
 cur.execute("SELECT first_name, last_name  FROM students ORDER BY assignments DESC")
 rows = cur.fetchall()
 print("This is a ranking of students by number of assignments: ")
 for row in rows:
     print(row)
+
+cur.execute("SELECT last_name FROM students WHERE first_name = 'Jane'")
+rows = cur.fetchall()
+print("This is last name of Jane: ")
+for row in rows:
+    print(row)
+
+#non avevo letto la query della ricerca del cognome di JANE
